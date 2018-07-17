@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+  php:
+    image: my_php_xdebug:7.1.19
+    build: ../.docker/build_php
+    volumes:
+      - ../webroot:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.6
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: some_password
+    ports:
+      - 3306:3306
+    volumes:
+      - ../docker/build_mysql/database:/docker-entrypoint-initdb.d
