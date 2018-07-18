@@ -1,2 +1,2 @@
-CREATE USER 'some_user'@'%' IDENTIFIED BY 'some_password';
-GRANT ALL PRIVILEGES ON * . * TO 'some_user';
+CREATE USER 'some_user'@'%' IDENTIFIED BY 'bazinga';
+GRANT ALL PRIVILEGES ON * . * TO 'bazinga';
